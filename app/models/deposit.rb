@@ -106,10 +106,6 @@ class Deposit < ApplicationRecord
     end
   end
 
-  def self.define_types(defult_values)
-    binding.pry
-  end
-
   def aml_check!
     from_addresses.each do |address|
       result = Peatio::AML.check!(address, currency_id, member.uid)
